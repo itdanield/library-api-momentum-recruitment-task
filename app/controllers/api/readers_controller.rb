@@ -15,10 +15,9 @@ module Api
     end
 
     private
-    
+
     def reader_params
       params.permit(:full_name, :email, :card_number)
     end
   end
 end
-
