@@ -1,0 +1,1 @@
+class BookNotBorrowedError < StandardError; end
