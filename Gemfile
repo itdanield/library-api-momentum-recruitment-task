@@ -51,8 +51,6 @@ group :development, :test do
   gem "rspec-rails"
   gem "factory_bot_rails"
   gem "rubocop"
-  gem "brakeman", require: false
-  gem "bundler-audit", require: false
 end
 
 group :test do
