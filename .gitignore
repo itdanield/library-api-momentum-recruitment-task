@@ -32,7 +32,6 @@
 /config/*.key
 
 .kamal
-bin
 public
 lib
 .keep
