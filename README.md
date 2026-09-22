@@ -91,14 +91,13 @@ Returns book details together with borrowing history.
 POST /api/books
 ```
 
-Example payload:
+Example request:
 
-```json
-{
-  "title": "Clean Code",
-  "author": "Robert C. Martin",
-  "serial_number": "123456"
-}
+```bash
+curl -X POST http://localhost:3000/api/books \
+  -d "title=Clean Code" \
+  -d "author=Robert C. Martin" \
+  -d "serial_number=123456"
 ```
 
 #### Delete a book
@@ -113,18 +112,23 @@ DELETE /api/books/:id
 POST /api/books/:id/borrow
 ```
 
-Example payload:
+Example request:
 
-```json
-{
-  "reader_id": 1
-}
+```bash
+curl -X POST http://localhost:3000/api/books/1/borrow \
+  -d "reader_id=1"
 ```
 
 #### Return a book
 
 ```http
 POST /api/books/:id/return_book
+```
+
+Example request:
+
+```bash
+curl -X POST http://localhost:3000/api/books/1/return_book
 ```
 
 ---
@@ -149,14 +153,42 @@ GET /api/readers/:id
 POST /api/readers
 ```
 
-Example payload:
+Example request:
 
-```json
-{
-  "full_name": "John Doe",
-  "email": "john@example.com",
-  "card_number": "654321"
-}
+```bash
+curl -X POST http://localhost:3000/api/readers \
+  -d "full_name=John Doe" \
+  -d "email=john@example.com" \
+  -d "card_number=654321"
+```
+
+## Request Format
+
+The API currently accepts request parameters as form data:
+
+```bash
+curl -X POST http://localhost:3000/api/books \
+  -d "title=Clean Code" \
+  -d "author=Robert C. Martin" \
+  -d "serial_number=123456"
+```
+
+JSON request bodies are not currently supported because of:
+
+```
+/usr/local/bundle/gems/activesupport-8.1.3.1/lib/active_support/json/decoding.rb
+```
+
+having:
+
+```
+data = ::JSON.parse(json, **options)
+```
+
+instead of:
+
+```
+data = ::JSON.parse(json, **options)
 ```
 
 ---
