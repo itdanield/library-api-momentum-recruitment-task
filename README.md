@@ -182,7 +182,7 @@ JSON request bodies are not currently supported because of:
 having:
 
 ```
-data = ::JSON.parse(json, **options)
+data = ::JSON.parse(json, options)
 ```
 
 instead of:
